@@ -42,6 +42,8 @@ human =
         |> with Human.name
 ```
 
+GraphQL and Elm are a perfect match because GraphQL is used to enforce the types that your API takes as inputs and outputs, much like Elm's type system does within Elm. `elm-graphql` simply bridges this gap by making your Elm code aware of your GraphQL server's schema. If you are new to GraphQL, [graphql.org/learn/](http://graphql.org/learn/) is an excellent way to learn the basics.
+
 After installing the command line tool and Elm package, running `elm-graphql` just looks like
 
 ```bash
