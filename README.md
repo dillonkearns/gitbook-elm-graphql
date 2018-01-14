@@ -12,8 +12,7 @@ query {
 
 would look like this in `elm-graphql`
 
-```elm
-
+```haskell
 import Graphqelm.Operation exposing (RootQuery)
 import Graphqelm.SelectionSet exposing (SelectionSet, with)
 import Swapi.Object
@@ -43,7 +42,7 @@ human =
         |> with Human.name
 ```
 
- After installing the command line tool and Elm package, running `elm-graphql` just looks like
+After installing the command line tool and Elm package, running `elm-graphql` just looks like
 
 ```bash
 graphqelm https://graphqelm.herokuapp.com --base Swapi --output examples/src
