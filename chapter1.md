@@ -68,7 +68,7 @@ query {
 }
 ```
 
-When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. We'll try to take the smallest possible steps where our code fails to compile. That way we get better and more frequent feedback from the compiler so we don't have to dig deep to find and fix our mistakes.
+When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. We'll take the smallest possible steps to make sure our code is compiling early and often. That way we get better and more frequent feedback from the compiler so we don't have to dig deep to find and fix our mistakes. The Elm compiler usually can't give us very good feedback if we take huge steps with lots of pieces that don't fit together so we'll optimize for compiler feedback.
 
 ```haskell
 query : SelectionSet notSureYet RootQuery
@@ -82,8 +82,6 @@ viewerSelection = Debug.crash "TODO"
 Since `notSureYet` is lowercase, it's a type variable, which just means it's a placeholder for any type. Once we finish building our **selection set**, the compiler will actually be able to infer the type for us so there's not any reason to worry about it yet. We could also omit the  type annotation like we did for the `viewerSelection` constant.
 
 The `Debug.crash` is handy here because Elm treats its type in a special way. It's like a wild card, it has whatever type it needs to. For example, if we wrote `1 + viewerSelection`, it would compile, and the compiler would suggest that we annotate `viewerSelection` as a number.
-
-
 
 The definition of the `Github.Query.viewer` function tells us that we need a `SelectionSet decodesTo Github.Object.User` . This makes sense, just as in our plain GraphQL syntax above, we need a **selection set** that tells our server which fields we want to get back from the User `viewer`. We really just want to give it a **selection set** that looks like `{ name }` . But `elm-graphql` can't just let you pass any field anywhere, it makes sure your query is valid by ensuring that your **selection set** has **fields** from the correct **object**. That's what `SelectionSet decodesTo Github.Object.User` means. We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available.
 
