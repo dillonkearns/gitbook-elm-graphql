@@ -41,7 +41,7 @@ Our goal is to have the steps where our code doesn't compile be as small as poss
 
 The definition of the `Github.Query.viewer` function tells us that we need a `SelectionSet decodesTo Github.Object.User` . This makes sense, just as in our plain GraphQL syntax above, we need a **selection set** that tells our server which fields we want to get back from the User `viewer`. We really just want to give it a **selection set** that looks like `{ name }` . But `elm-graphql` can't just let you pass any field anywhere, it makes sure your query is valid by ensuring that your **selection set** has **fields** from the correct **object**. That's what `SelectionSet decodesTo Github.Object.User` means. We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available.
 
-![](/assets/Github_elm_—___src_graphqelm.png)
+![](/assets/Field_autocompletion.png)
 
 That's just what we're looking for! But it looks like this is a `Field (Maybe String) Github.Object.User`, not a `SelectionSet`. So this gives us just a **field**, not a selection set. It's the equivalent of `name` instead of `{ name }`. So how do we build up a `SelectionSet` from a `Field`?
 
