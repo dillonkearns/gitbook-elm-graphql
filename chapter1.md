@@ -41,6 +41,10 @@ Our goal is to have the steps where our code doesn't compile be as small as poss
 
 The definition of the `Github.Query.viewer` function tells us that we need a `SelectionSet decodesTo Github.Object.User` . This makes sense, just as in our plain GraphQL syntax above, we need a **selection set** that tells our server which fields we want to get back from the User `viewer`. We really just want to give it a **selection set** that looks like `{ name }` . But `elm-graphql` can't just let you pass any field anywhere, it makes sure your query is valid by ensuring that your **selection set** has **fields** from the correct **object**. That's what `SelectionSet decodesTo Github.Object.User` means. We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available.
 
+
+
+
+
 If you're using the Atom editor and the Elmjutsu plugin, typing `Query.viewer` will autocomplete with the types of the argument, which are `(SelectionSet selection Github.Object.User)`. This means that the `Query.viewer` function needs a `SelectionSet` of fields from the `Github.Object.User` module. This makes sense because the viewer is an object, and objects need a selection of fields.
 
 ```graphql
