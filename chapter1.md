@@ -67,23 +67,17 @@ query =
 
 &gt;        \|&gt; with \(Query.viewer viewerSelection\)
 
-
-
 The type annotation for \`query\` says it is a:
 
-
-
-    SelectionSet notSureYet RootQuery
-
-
+```
+SelectionSet notSureYet RootQuery
+```
 
 But the definition \(shown above\) is a:
 
-
-
-    SelectionSet \(Maybe String\) RootQuery
-
-
+```
+SelectionSet \(Maybe String\) RootQuery
+```
 
 Hint: Your type annotation uses type variable \`notSureYet\` which means any type of value
 
