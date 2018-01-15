@@ -23,7 +23,8 @@ In fact, any top-level query is itself nothing more than a **selection set** in 
 `elm-graphql` will generate a module for each **object** in your server's schema \(including the **mutation** and **query** **objects**\). Each **object's** module has a `selection` function which starts a pipeline for building up a `SelectionSet`. This pipeline pattern is based on the [`Json.Decode.Pipeline` pattern](https://github.com/NoRedInk/elm-decode-pipeline). Retrieving a simple integer value from the top-level query would look like
 
 ```haskell
-type alias Response = { answer : Int }
+type alias Response = 
+    { answer : Int }
 
 query : SelectionSet Response RootQuery
 query =
