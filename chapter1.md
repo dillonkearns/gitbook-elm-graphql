@@ -43,7 +43,20 @@ The definition of the `Github.Query.viewer` function tells us that we need a `Se
 
 ![](/assets/Github_elm_—___src_graphqelm.png)
 
-That's just what we're looking for!
+That's just what we're looking for! But it looks like this is a `FieldDecoder (Maybe String) Github.Object.User`, not a `SelectionSet`. So this gives us just a **field**, not a selection set. It's the equivalent of `name` instead of `{ name }`. So how do we build up a `SelectionSet` from a `FieldDecoder`?
+
+```haskell
+type alias User =
+    { name : Maybe String }
+
+
+viewerSelection : SelectionSet Viewer Github.Object.User
+viewerSelection =
+    Github.Object.User.selection User
+        |> with Github.Object.User.name
+```
+
+
 
 If you're using the Atom editor and the Elmjutsu plugin, typing `Query.viewer` will autocomplete with the types of the argument, which are `(SelectionSet selection Github.Object.User)`. This means that the `Query.viewer` function needs a `SelectionSet` of fields from the `Github.Object.User` module. This makes sense because the viewer is an object, and objects need a selection of fields.
 
