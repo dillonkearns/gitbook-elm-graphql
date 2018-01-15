@@ -20,7 +20,14 @@ query {
 
 When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
 
-* * Type mismatches errors can be hard to debug if they aren't precise enough. Extracting a small piece and annotating it can help you get more targeted error messages.
+```haskell
+query : SelectionSet notSureYet RootQuery
+query =
+    Query.selection identity
+        |> with (Query.viewer viewerSelection)
+        
+viewerSelection = Debug.crash "TODO"
+```
 
-
+Since `notSureYet` is lowercase, it's a type variable, which just means it's a placeholder for any type. Once we finish the selection set, the compile will actually be able to infer the type for us so there's not any reason to worry about it yet. We could also omit the  type annotation like we did for the `viewerSelection` constant.
 
