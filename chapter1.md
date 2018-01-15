@@ -8,7 +8,7 @@ query {
 }
 ```
 
-The `{}`s and the contents are called a selection set. Since the `myUsername` field is just a simple String, it ends there. But if it were an object, you would need a selection set to say which fields you wanted to select from that object:
+The `{ myUsername }` part is called a selection set. Since the `myUsername` field is just a simple String, it ends there. But if it were an object, you would need a selection set to say which fields you wanted to select from that object:
 
 ```graphql
 query {
