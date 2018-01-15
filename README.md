@@ -21,8 +21,7 @@ import Swapi.Query as Query
 
 
 type alias Response =
-    { vader : Maybe Human
-    }
+    { vader : Maybe Human }
 
 
 query : SelectionSet Response RootQuery
@@ -32,8 +31,7 @@ query =
 
 
 type alias Human =
-    { name : String
-    }
+    { name : String }
 
 
 human : SelectionSet Human Swapi.Object.Human
