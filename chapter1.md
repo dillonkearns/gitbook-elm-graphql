@@ -18,13 +18,7 @@ query {
 }
 ```
 
-When defining `SelectionSet`s in Elm, it is sometimes easier to start from the leaves and work your way up. This can provide more precise error messages when you're figuring out how to define your records. Let's try building the above example with `elm-graphql`.
-
-
-
-
-
-
+When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
 
 * * Type mismatches errors can be hard to debug if they aren't precise enough. Extracting a small piece and annotating it can help you get more targeted error messages.
 
