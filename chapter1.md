@@ -29,7 +29,22 @@ type alias Response =
 query : SelectionSet Response RootQuery
 query =
     HitchHiker.Query.selection Response
-        |> with Github.Query.answerToLifeUniverseAndEverything
+        |> with HitchHiker.Query.answerToLifeUniverseAndEverything
+```
+
+As with the `Json.Decode.Pipeline` library, it is common to use a constructor function like `Response` to start the pipeline. When we make a type alias for a record in Elm, we automatically get a function of the same name that takes each record attribute as an argument and builds up a record. So with `type alias Person = { first : String, last : String, age : Int }` we can build person with its constructor function like this `Person "Arthur" "Dent" 42`. \(returns `{ first = "Arthur", last = "Dent", age = 42 }`\).
+
+We could have given any function here that takes an `Int` as the argument. Using the constructor functions that are generated when we declare type aliases of records is handy
+
+```haskell
+type alias Response = 
+    { answer : Int, name : String }
+
+query : SelectionSet Response RootQuery
+query =
+    HitchHiker.Query.selection Response
+        |> with HitchHiker.Query.answerToLifeUniverseAndEverything
+        |> with HitchHiker.Query.author
 ```
 
 ### Building Up a `SelectionSet`
