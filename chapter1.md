@@ -14,7 +14,7 @@ query {
 
 Here, `{ name }` is a **selection set** that tells GraphQL to give you the `name` **field** for the `viewer`.
 
-In fact, any top-level query is itself nothing more than a **selection set** in GraphQL \(in this case, the **selection set** itself refers to an **object** \(`viewer`\) so we need a nested **selection set** to tell it we just want the `viewer`'s name\). Since the `name` field is just a simple String, it ends there.
+In fact, any top-level query is itself nothing more than a **selection set** in GraphQL. You may have guessed already then that a **query** is nothing more than a GraphQL **object** \(**mutation** is also defined as an **object**\)**.** In this case, the top-level **selection set** refers to another **object** \(`viewer`\) so we need a nested **selection set** to tell it we just want the `viewer`'s name\). Since the `name` field is just a simple String, it ends there.
 
 ### Elm `SelectionSets`
 
