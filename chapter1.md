@@ -1,6 +1,6 @@
 # Selection Sets
 
-**Selection sets** are how to you describe a set of fields to pull off of an object in GraphQL. The Github API allows you to query `viewer` to get details for the currently logged in user.
+**Selection sets** are how to you describe a set of **fields** to pull off of an **object** in GraphQL. The Github API allows you to query `viewer` to get details for the currently logged in user.
 
 ```graphql
 query {
