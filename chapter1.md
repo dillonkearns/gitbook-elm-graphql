@@ -1,3 +1,8 @@
-# First Chapter
+# Tips
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+
+
+* Type mismatches errors can be hard to debug if they aren't precise enough. Extracting a small piece and annotating it can help you get more targeted error messages.
+
+
+

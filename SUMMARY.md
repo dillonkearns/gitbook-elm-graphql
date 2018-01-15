@@ -1,3 +1,5 @@
 # Summary
 
-* [First Chapter](chapter1.md)
+* [Intro to elm-graphql](README.md)
+* [Tips](chapter1.md)
+
