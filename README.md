@@ -10,7 +10,7 @@ query {
 }
 ```
 
-would look like this in `elm-graphql` \(all the generated code is prefixed, in this example with `Swapi.`
+would look like this in `elm-graphql` \(all the generated code is prefixed, in this example with `Swapi.)`
 
 ```haskell
 import Graphqelm.Operation exposing (RootQuery)
