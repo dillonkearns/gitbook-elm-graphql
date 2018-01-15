@@ -1,6 +1,6 @@
 # Intro to [`elm-graphql`](/package.elm-lang.org/packages/dillonkearns/graphqelm/latest)
 
-`elm-graphql` is an Elm package and accompanying command-line code generator that creates type-safe Elm code for your GraphQL endpoint. You don't write any decoders for your API with `elm-graphql`, instead you select which fields you would like similar to a standard GraphQL query, but in Elm. For example, this GraphQL query
+`elm-graphql` is an Elm package and accompanying command-line code generator that creates type-safe Elm code for your GraphQL endpoint. You don't write any decoders for your API with `elm-graphql`, instead you simply select which fields you would like, similar to a standard GraphQL query but in Elm. For example, this GraphQL query
 
 ```graphql
 query {
