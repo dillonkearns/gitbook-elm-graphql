@@ -43,5 +43,51 @@ query {
 }
 ```
 
+```haskell
+# this 
+query : SelectionSet notSureYet RootQuery
+query =
+    Query.selection identity
+        |> with (Query.viewer viewerSelection)
 
+
+viewerSelection : SelectionSet (Maybe String) Github.Object.User
+viewerSelection =
+    Github.Object.User.selection identity
+        |> with Github.Object.User.name
+```
+
+The definition of \`query\` does not match its type annotation.
+
+query : SelectionSet a RootQuery
+
+query =
+
+&gt;    Query.selection identity
+
+&gt;        \|&gt; with \(Query.viewer viewerSelection\)
+
+
+
+The type annotation for \`query\` says it is a:
+
+
+
+    SelectionSet notSureYet RootQuery
+
+
+
+But the definition \(shown above\) is a:
+
+
+
+    SelectionSet \(Maybe String\) RootQuery
+
+
+
+Hint: Your type annotation uses type variable \`notSureYet\` which means any type of value
+
+can flow through. Your code is saying it CANNOT be anything though! Maybe change
+
+your type annotation to be more specific? Maybe the code has a problem?
 
