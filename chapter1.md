@@ -1,5 +1,7 @@
 # Selection Sets
 
+TODO: switch order, introduce objects first, then query as a special case.
+
 At its simplest, a basic query is just a selection set
 
 ```graphql
