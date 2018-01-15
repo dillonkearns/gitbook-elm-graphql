@@ -32,7 +32,7 @@ query =
         |> with Github.Query.answerToLifeUniverseAndEverything
 ```
 
-Let's walk through the process of building up the same **selection set** as above in Elm. Notice that as described above, the root query is itself just a `SelectionSet`.
+Let's walk through the process of building up the same **selection set** from our earlier example in Elm. Notice that as described above, the root query is itself just a `SelectionSet`.
 
 When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go.
 
