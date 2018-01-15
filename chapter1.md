@@ -1,6 +1,6 @@
 # Selection Sets
 
-Selection Sets are how to you describe a set of fields to pull off of an object in GraphQL.
+Selection Sets are how to you describe a set of fields to pull off of an object in GraphQL. The Github API allows you to query `viewer` to get details for the currently logged in user.
 
 ```graphql
 query {
@@ -10,11 +10,11 @@ query {
 }
 ```
 
-The Selection Set `{ name }` tells GraphQL to give you just the name for the `viewer` \(logged in user\).
+The Selection Set `{ name }` tells GraphQL to give you just the field `name` for the `viewer` \(logged in user\).
 
 In fact, any top-level query itself is nothing more than a selection set in GraphQL \(in this case, the selection itself has an object in it so we need a nested selection set to tell it we just want the viewer's name\). Since the `name` field is just a simple String, it ends there.
 
- When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
+When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
 
 ```haskell
 query : SelectionSet notSureYet RootQuery
