@@ -12,7 +12,7 @@ query {
 
 Here, `{ name }` is just a **selection set** that tells GraphQL to give you the `name` **field** for the `viewer`.
 
-In fact, any top-level query is itself nothing more than a **selection set** in GraphQL \(in this case, the selection itself has an object in it so we need a nested selection set to tell it we just want the viewer's name\). Since the `name` field is just a simple String, it ends there.
+In fact, any top-level query is itself nothing more than a **selection set** in GraphQL \(in this case, the **selection set** itself refers to an **object** \(`viewer`\) so we need a nested **selection set** to tell it we just want the `viewer`'s name\). Since the `name` field is just a simple String, it ends there.
 
 When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
 
