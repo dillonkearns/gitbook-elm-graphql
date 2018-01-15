@@ -2,7 +2,7 @@
 
 ### Plain GraphQL Selection Sets
 
-**Selection sets** are how to you describe a set of **fields** to pull off of an **object** in GraphQL. The Github API allows you to query `viewer` to get details for the currently logged in user.
+_Definition:_ **Selection sets** are how to you describe a set of **fields** to pull off of an **object** in GraphQL. The Github API allows you to query `viewer` to get details for the currently logged in user.
 
 ```graphql
 query {
@@ -14,7 +14,7 @@ query {
 
 Here, `{ name }` is a **selection set** that tells GraphQL to give you the `name` **field** from the `viewer`.
 
-In fact, any top-level query is itself nothing more than a **selection set** in GraphQL. You may have guessed already then that a **query** is nothing more than a GraphQL **object** \(**mutation** is also defined as an **object**\)**.** **Selection sets** are often nested. The top-level **selection set** refers to another **object** \(`viewer`\) so we need a nested **selection set** to tell it we want the `viewer`'s name. Since the `name` field is just a simple String, it ends there.
+In fact, any top-level query is itself nothing more than a **selection set** in GraphQL. You may have guessed based on the definition above then that a **query** is nothing more than a GraphQL **object** since we are using a **selection set** on it \(a **mutation** is also defined as an **object**\)**.** **Selection sets** are often nested. The top-level **selection set** refers to another **object** \(`viewer`\) so we need a nested **selection set** to tell it we want the `viewer`'s name. Since the `name` field is just a simple String, it ends there.
 
 ### Elm `SelectionSets`
 
