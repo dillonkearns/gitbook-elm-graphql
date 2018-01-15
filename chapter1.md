@@ -1,16 +1,6 @@
 # Selection Sets
 
-TODO: switch order, introduce objects first, then query as a special case.
-
-At its simplest, a basic query is just a selection set
-
-```graphql
-query {
-  myUsername
-}
-```
-
-The `{ myUsername }` part is called a selection set. Since the `myUsername` field is just a simple String, it ends there. But if it were an object, you would need a selection set to say which fields you wanted to select from that object:
+Selection Sets are how to you describe a set of fields to pull off of an object in GraphQL.
 
 ```graphql
 query {
@@ -20,7 +10,11 @@ query {
 }
 ```
 
-When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
+The Selection Set `{ name }` tells GraphQL to give you just the name for the `viewer` \(logged in user\).
+
+In fact, any top-level query itself is nothing more than a selection set in GraphQL \(in this case, the selection itself has an object in it so we need a nested selection set to tell it we just want the viewer's name\).
+
+The `{ myUsername }` part is called a selection set. Since the `myUsername` field is just a simple String, it ends there. When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
 
 ```haskell
 query : SelectionSet notSureYet RootQuery
