@@ -27,8 +27,8 @@ When defining `SelectionSet`s in Elm, you get more precise type error messages w
 ```haskell
 query : SelectionSet notSureYet RootQuery
 query =
-    Query.selection identity
-        |> with (Query.viewer viewerSelection)
+    Github.Query.selection identity
+        |> with (Github.Query.viewer viewerSelection)
 
 viewerSelection = Debug.crash "TODO"
 ```
@@ -53,8 +53,8 @@ query {
 # this 
 query : SelectionSet notSureYet RootQuery
 query =
-    Query.selection identity
-        |> with (Query.viewer viewerSelection)
+    Github.Query.selection identity
+        |> with (Github.Query.viewer viewerSelection)
 
 
 viewerSelection : SelectionSet (Maybe String) Github.Object.User
