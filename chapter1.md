@@ -10,7 +10,7 @@ query {
 }
 ```
 
-The Selection Set `{ name }` tells GraphQL to give you just the field `name` for the `viewer` \(logged in user\).
+Here, `{ name }` is just a selection set that tells GraphQL to give you the `name` field for the `viewer`.
 
 In fact, any top-level query itself is nothing more than a selection set in GraphQL \(in this case, the selection itself has an object in it so we need a nested selection set to tell it we just want the viewer's name\). Since the `name` field is just a simple String, it ends there.
 
