@@ -18,7 +18,7 @@ In fact, any top-level query is itself nothing more than a **selection set** in 
 
 ### Elm `SelectionSets`
 
-When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
+Let's build up the same **selection set** as above in Elm code. When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. Let's walk through the process of building up the `currentUser` example above with `elm-graphql`.
 
 ```haskell
 query : SelectionSet notSureYet RootQuery
