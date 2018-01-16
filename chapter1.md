@@ -84,8 +84,6 @@ query {
 
 When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. We'll take the smallest possible steps to make sure our code is compiling early and often. That way we'll get better and more frequent feedback from the compiler so we don't have to dig deep to find and fix our mistakes.
 
-
-
 ```haskell
 query : SelectionSet notSureYet RootQuery
 query =
@@ -95,7 +93,7 @@ query =
 viewerSelection = Debug.crash "TODO"
 ```
 
-`Debug.crash` may cause our program to fail at run-time, but it is actually a neat trick for getting our program to compile. It essentially tells the compiler to not check the pieces that we're still working on. That let's us check that what we've completed so far compiles and let's us get around to another piece later.
+`Debug.crash` may cause our program to fail at run-time, but it is actually a neat trick for getting our program to succeed at compile-time. It essentially tells the compiler to not check the pieces that we're still working on. That let's us check that what we've completed so far compiles and let's us get around to another piece later.
 
 Since `notSureYet` is lowercase, it's a type variable, which just means it's a placeholder for any type. Once we finish building our **selection set**, the compiler will actually be able to infer the type for us so there's not any reason to worry about it yet. We could also omit the  type annotation like we did for the `viewerSelection` constant.
 
