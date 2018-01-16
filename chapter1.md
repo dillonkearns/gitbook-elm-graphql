@@ -60,7 +60,7 @@ query =
         |> with HitchHiker.Query.author
 ```
 
-### Building Up a `SelectionSet`
+### Building Up a `SelectionSet`in Elm
 
 Let's walk through the process of building up the same **selection set** from our earlier example in Elm.
 
