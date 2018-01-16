@@ -115,7 +115,27 @@ nameField =
 
 We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available.
 
-![](/assets/Field_autocompletion.png)
+![](/assets/nameField.png)That's just what we're looking for! Since we're looking for a `Field` to add to a `SelectionSet decodesTo Github.Object.User`, we can actually use any `Field` defined in the `Github.Object.User` module.
 
-That's just what we're looking for! Since this is a `Field (Maybe String) Github.Object.User`, We are using the `identity` function to just pass the value we get straight through instead of wrapping it with a record constructor, so we know it will decode to a `Maybe String`.
+Now we're all done! Since this is a `Field (Maybe String) Github.Object.User`, we could fill in the types ourselves at this point. Or we can have the compiler infer the types all the way through for us:
+
+```haskell
+query : SelectionSet (Maybe String) RootQuery
+query =
+    Query.selection identity
+        |> with (Query.viewer viewerSelection)
+
+
+viewerSelection : SelectionSet (Maybe String) Github.Object.User
+viewerSelection =
+    Github.Object.User.selection identity
+        |> with nameField
+
+
+nameField : Graphqelm.Field.Field (Maybe String) Github.Object.User
+nameField =
+    Github.Object.User.name
+```
+
+
 
