@@ -93,7 +93,7 @@ query =
 viewerSelection = Debug.crash "TODO"
 ```
 
-`Debug.crash` may cause our program to fail at run-time, but it is actually a neat trick for getting our program to succeed at compile-time. It essentially tells the compiler to not check the pieces that we're still working on. That let's us check that what we've completed so far compiles and let's us get around to another piece later.
+`Debug.crash` may cause our program to fail at run-time, but it is actually a neat trick for getting our program to succeed at compile-time. It essentially tells the compiler to not check the pieces that we're still working on. That let's us check that what we've completed so far compiles and take smaller steps.
 
 Since `notSureYet` is lowercase, it's a type variable, which just means it's a placeholder for any type. Once we finish building our **selection set**, the compiler will actually be able to infer the type for us so there's not any reason to worry about it yet. We could also omit the  type annotation like we did for the `viewerSelection` constant.
 
