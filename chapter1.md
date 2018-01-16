@@ -47,7 +47,7 @@ query =
         |> with HitchHiker.Query.answerToLifeUniverseAndEverything
 ```
 
-The identity function in Elm simply takes a thing and passes it right back. This is convenient when we want to avoid nesting our data any further. It's essentially a one-liner, here's the code:
+The identity function in Elm simply takes a thing and passes it right back. It's essentially a one-liner, here's the code:
 
 ```haskell
 identity : a -> a
@@ -55,7 +55,7 @@ identity x =
   x
 ```
 
-Although using constructor functions is handy because it's easy to add on more fields incrementally.
+Using the `identity` function is convenient when we want to avoid nesting our data any further. Using constructor functions is handy because it's easy to add on more fields incrementally.
 
 ```haskell
 type alias Response = 
@@ -67,6 +67,8 @@ query =
         |> with HitchHiker.Query.answerToLifeUniverseAndEverything
         |> with HitchHiker.Query.author
 ```
+
+You'll develop a sense
 
 ### Building Up a `SelectionSet` in Elm
 
