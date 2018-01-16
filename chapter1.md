@@ -84,6 +84,8 @@ query {
 
 When defining `SelectionSet`s in Elm, you get more precise type error messages when you break off small pieces into constants as you go. We'll take the smallest possible steps to make sure our code is compiling early and often. That way we'll get better and more frequent feedback from the compiler so we don't have to dig deep to find and fix our mistakes.
 
+
+
 ```haskell
 query : SelectionSet notSureYet RootQuery
 query =
