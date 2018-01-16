@@ -96,72 +96,26 @@ viewerSelection = Debug.crash "TODO"
 
 We're also omitting the type annotations for now. Once we finish building our **selection sets**, the compiler will actually be able to infer the types for us so there's not any reason to worry about it yet.
 
-We're almost there, we just need to fill in our `Debug.crash "TODO"`. The definition of the `Github.Query.viewer` function tells us that it needs an argument of type `SelectionSet decodesTo Github.Object.User` . This makes sense, just as with our plain GraphQL syntax above we need a **selection set** that tells our server which fields we want to get back from the `viewer`. We really just want to give it a **selection set** that looks like `{ name }` . But `elm-graphql` can't just let you pass any field anywhere, it makes sure your query is valid by ensuring that your **selection set** has **fields** from the correct **object**. That's what `SelectionSet decodesTo Github.Object.User` means. We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available.
-
-![](/assets/Field_autocompletion.png)
-
-That's just what we're looking for! But it looks like this is a `Field (Maybe String) Github.Object.User`, not a `SelectionSet`. So this gives us just a **field**, not a selection set. It's the equivalent of `name` instead of `{ name }`. So how do we build up a `SelectionSet` from a `Field`?
+We're almost there, we just need to fill in our `Debug.crash "TODO"`. The definition of the `Github.Query.viewer` function tells us that it needs an argument of type `SelectionSet decodesTo Github.Object.User` . This makes sense, just as with our plain GraphQL syntax above we need a **selection set** that tells our server which fields we want to get back from the `viewer`. We really just want to give it a **selection set** that looks like `{ name }` . But `elm-graphql` can't just let you pass any field anywhere, it makes sure your query is valid by ensuring that your **selection set** has **fields** from the correct **object**. That's what `SelectionSet decodesTo Github.Object.User` means. So we know we'll need to start with
 
 ```haskell
-type alias User =
-    { name : Maybe String }
-
-
-viewerSelection : SelectionSet Viewer Github.Object.User
-viewerSelection =
-    Github.Object.User.selection User
-        |> with Github.Object.User.name
-```
-
-If you're using the Atom editor and the Elmjutsu plugin, typing `Query.viewer` will autocomplete with the types of the argument, which are `(SelectionSet selection Github.Object.User)`. This means that the `Query.viewer` function needs a `SelectionSet` of fields from the `Github.Object.User` module. This makes sense because the viewer is an object, and objects need a selection of fields.
-
-```graphql
-query {
-  viewer { # we're using Query.viewer, but we need to fill in the selection
-    name   # name is a leaf, so once we add this to our selection we are done
-  }
-}
-```
-
-```haskell
-# this 
-query : SelectionSet notSureYet RootQuery
 query =
     Github.Query.selection identity
         |> with (Github.Query.viewer viewerSelection)
 
 
-viewerSelection : SelectionSet (Maybe String) Github.Object.User
 viewerSelection =
     Github.Object.User.selection identity
-        |> with Github.Object.User.name
+        |> with nameField
+
+
+nameField =
+    Debug.crash "TODO"
 ```
 
-The definition of \`query\` does not match its type annotation.
+We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available.
 
-query : SelectionSet a RootQuery
+![](/assets/Field_autocompletion.png)
 
-query =
-
-&gt;    Query.selection identity
-
-&gt;        \|&gt; with \(Query.viewer viewerSelection\)
-
-The type annotation for \`query\` says it is a:
-
-```
-SelectionSet notSureYet RootQuery
-```
-
-But the definition \(shown above\) is a:
-
-```
-SelectionSet (Maybe String) RootQuery
-```
-
-Hint: Your type annotation uses type variable \`notSureYet\` which means any type of value
-
-can flow through. Your code is saying it CANNOT be anything though! Maybe change
-
-your type annotation to be more specific? Maybe the code has a problem?
+That's just what we're looking for! Since this is a `Field (Maybe String) Github.Object.User`, We are using the `identity` function to just pass the value we get straight through instead of wrapping it with a record constructor, so we know it will decode to a `Maybe String`.
 
