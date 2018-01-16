@@ -68,7 +68,7 @@ query =
         |> with HitchHiker.Query.author
 ```
 
-You'll develop a sense
+You'll develop a sense of when to use constructors versus other functions with practice.
 
 ### Building Up a `SelectionSet` in Elm
 
