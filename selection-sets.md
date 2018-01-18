@@ -115,7 +115,7 @@ nameField =
     Debug.crash "TODO"
 ```
 
-We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available.
+We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available in `Github.Object.User`.
 
 ![](/assets/nameField.png)That's just what we're looking for! Since we're looking for a `Field` to add to a `SelectionSet decodesTo Github.Object.User`, we can actually use any `Field` defined in the `Github.Object.User` module.
 
