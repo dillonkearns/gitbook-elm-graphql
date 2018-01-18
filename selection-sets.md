@@ -117,7 +117,7 @@ nameField =
 
 We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available in `Github.Object.User`.
 
-![](/assets/nameField.png)That's just what we're looking for! Since we're looking for a `Field` to add to a `SelectionSet decodesTo Github.Object.User`, we can actually use any `Field` defined in the `Github.Object.User` module.
+![](/assets/nameField.png)That's just what we're looking for! Since we're looking for a `Field fieldDecodesTo Github.Object.User`  to add to a `SelectionSet selectionDecodesTo Github.Object.User`, we can actually use any `Field` defined in the `Github.Object.User` module.
 
 Now we're all done! Since this is a `Field (Maybe String) Github.Object.User`, we could fill in the types ourselves at this point. Or we can let the compiler infer the types all the way through for us:
 
