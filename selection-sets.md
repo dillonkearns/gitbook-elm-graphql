@@ -55,7 +55,7 @@ query =
         |> with HitchHiker.Query.answerToLifeUniverseAndEverything
 ```
 
-Here instead of wrapping the `answerToLifeUniverseAndEverything` value in a record, we're simply getting a raw `Int` from our query by passing it straight through with the `identity` function. In fact, we didn't need to define `identity`  because it is a built-in function in the Elm language! You can use it anywhere in any Elm module.
+Here instead of wrapping the `answerToLifeUniverseAndEverything` value in a record, we're simply passing the raw `Int` through using the `identity` function. In fact, we didn't need to define `identity`  because it is a built-in function in the Elm language! You can use it anywhere in any Elm module.
 
 Using the `identity` function is convenient when we want to avoid nesting our data any further. Using constructor functions is handy because it's easy to add on more fields incrementally.
 
