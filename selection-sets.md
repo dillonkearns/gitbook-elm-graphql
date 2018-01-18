@@ -36,9 +36,13 @@ query =
         |> with HitchHiker.Query.answerToLifeTheUniverseAndEverything
 ```
 
-As with the `Json.Decode.Pipeline` library, it is common to use a constructor function \(like `Response` in this example\) to start the pipeline. When we make a type alias for a record in Elm, we automatically get a function of the same name that takes each record attribute as an argument and builds up a record. So with `type alias Person = { first : String, last : String, age : Int }` we can build `Person` record with its constructor function like this: `Person "Arthur" "Dent" 42` \(returns `{ first = "Arthur", last = "Dent", age = 42 }`\).
+As with the `Json.Decode.Pipeline` library, it is common to use a constructor function \(like `Response` in this example\) to start the pipeline.
 
-We could have given any function that takes an `Int` as the argument in place of the `Response` constructor.
+> #### Constructor Functions
+>
+> If you're not familiar with constructor functions in Elm, they come for free when we create a type alias for a record. It is just a function with the same name as the type alias that takes each record attribute as an argument and builds up a record. So with `type alias Person = { first : String, last : String, age : Int }` we can build `Person` record with its constructor function like this: `Person "Arthur" "Dent" 42` \(returns `{ first = "Arthur", last = "Dent", age = 42 }`\).
+
+We don't have to use constructor functions, we could have used any function that takes an `Int` as the argument in place of the `Response` constructor function.
 
 ```haskell
 query : SelectionSet Int RootQuery
