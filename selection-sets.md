@@ -98,7 +98,7 @@ viewerSelection = Debug.crash "TODO"
 
 We're also omitting type annotations for now. Once we finish building our **selection sets**, the compiler will actually be able to infer the types for us so there's no need to worry about that yet.
 
-We're almost there, we just need to fill in our `Debug.crash "TODO"`. The definition of the `Github.Query.viewer` function tells us that it needs an argument of type `SelectionSet decodesTo Github.Object.User` . This makes sense, just as with our plain GraphQL syntax above, we need a **selection set** that tells our server which fields we want to get back from the `viewer`. We want to give it a **selection set** that looks like `{ name }` . To ensure that your `SelectionSet` for `viewer` only has **fields** for a User **object**, `elm-graphql`  adds `Github.Object.User` to the `SelectionSet`'s annotation. That's what `SelectionSet decodesTo Github.Object.User` means. So we know we'll need to start with `Github.Object.User.selection`
+We're almost there, we just need to fill in our `Debug.crash "TODO"`. The definition of the `Github.Query.viewer` function tells us that it needs an argument of type `SelectionSet decodesTo Github.Object.User` . This makes sense. Just as with our plain GraphQL syntax above, we need a **selection set** that tells our server which fields we want to get back from the `viewer`. We want to give it a **selection set** that looks like `{ name }` . To ensure that your `SelectionSet` for `viewer` only has **fields** for a User **object**, `elm-graphql`  adds `Github.Object.User` to the `SelectionSet`'s annotation. That's what `SelectionSet decodesTo Github.Object.User` means. So we know we'll need to start with `Github.Object.User.selection`
 
 ```haskell
 query =
