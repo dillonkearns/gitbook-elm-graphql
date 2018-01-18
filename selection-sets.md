@@ -70,6 +70,16 @@ query =
         |> with HitchHiker.Query.author
 ```
 
+When our **selection set** contains multiple fields, we will need to use a function that takes multiple arguments, so **identity** will not work. For example, here are two ways to build up a Point:
+
+```haskell
+type alias Point =
+    { x : Float, y : Float }
+
+query : SelectionSet Point RootQuery
+
+```
+
 You'll develop a sense of when to use constructors versus other functions with practice.
 
 ### Building Up a `SelectionSet` in Elm
