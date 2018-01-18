@@ -100,8 +100,6 @@ We're also omitting type annotations for now. Once we finish building our **sele
 
 We're almost there, we just need to fill in our `Debug.crash "TODO"`. The definition of the `Github.Query.viewer` function tells us that it needs an argument of type `SelectionSet decodesTo Github.Object.User` . This makes sense. Just as with our plain GraphQL syntax above, we need a **selection set** that tells our server which fields we want to get back from the `viewer`.
 
-
-
 > #### Guaranteed-Valid Selection Sets
 >
 > Since `viewer` is a User, we'll need to limit our `SelectionSet` to **fields** for a User **object.** GraphQL would give us an error if we passed it something like
@@ -116,9 +114,7 @@ We're almost there, we just need to fill in our `Debug.crash "TODO"`. The defini
 >
 > since Users don't have descriptions like Repositories and other **objects** do. `elm-graphql` enforces this constraint at compile-time using the type annotations. A `SelectionSet decodesTo Github.Object.User` will only accept a `Field decodesTo Github.Object.User`. So if it compiles, your `SelectionSet` is guaranteed to be valid.
 
-
-
-We want to give it a **selection set** that looks like `{ name }` . To ensure that your `SelectionSet` for `viewer` only has **fields** for a User **object**, `elm-graphql`  adds `Github.Object.User` to the `SelectionSet`'s annotation. That's what `SelectionSet decodesTo Github.Object.User` means. So we know we'll need to start with `Github.Object.User.selection`
+ To ensure that your `SelectionSet` for `viewer` only has **fields** for a User **object**, `elm-graphql`  adds `Github.Object.User` to the `SelectionSet`'s annotation. That's what `SelectionSet decodesTo Github.Object.User` means. So we know we'll need to start with `Github.Object.User.selection`
 
 ```haskell
 query =
@@ -135,7 +131,7 @@ nameField =
     Debug.crash "TODO"
 ```
 
-We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available in `Github.Object.User`.
+Now we need to find the `name` **field** . We can use our editor's auto-complete functionality, or just manually inspect the code in the module `Github.Object.User` to see which **fields** are available in `Github.Object.User`.
 
 ![](/assets/nameField.png)That's just what we're looking for! Since we're looking for a `Field fieldDecodesTo Github.Object.User`  to add to a `SelectionSet selectionDecodesTo Github.Object.User`, we can actually use any `Field` defined in the `Github.Object.User` module.
 
