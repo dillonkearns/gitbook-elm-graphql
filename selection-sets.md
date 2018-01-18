@@ -14,7 +14,7 @@ query {
 }
 ```
 
-Here, `{ name }` is a **selection set** that tells GraphQL to give you the `name` **field** from the `viewer`.
+Here, `{ name }` is a **selection set** that tells GraphQL to give you the `name` **field** from `viewer`.
 
 In fact, when you specify a top-level **query** in GraphQL you're simply specifying a **selection set**. You may have guessed based on the definition above then that a **query** is a GraphQL **object **since we are using a **selection set** on it, and you'd be right! A **mutation** is also defined as an **object.**
 
