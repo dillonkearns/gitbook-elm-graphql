@@ -70,24 +70,6 @@ query =
         |> with HitchHiker.Query.author
 ```
 
-When our **selection set** contains multiple fields, we will need to use a function that takes multiple arguments, so **identity** will not work. For example, here are two ways to build up a Point:
-
-```haskell
-type alias Location =
-    { latitude : Float, longitude : Float }
-
-query : SelectionSet Location RootQuery
-query =
-    SantaTracker.Query.selection identity
-        |> with (SantaTracker.Query.currentLocation location)
-
-location : SelectionSet Location SantaTracker.Object.Location
-location =
-    SantaTracker.Object.Location.selection Location
-        |> with SantaTracker.Object.Location.lat
-        |> with SantaTracker.Object.Location.long
-```
-
 You'll develop a sense of when to use constructors versus other functions with practice.
 
 ### Building Up a `SelectionSet` in Elm
