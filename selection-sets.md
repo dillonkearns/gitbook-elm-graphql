@@ -42,7 +42,7 @@ As with the `Json.Decode.Pipeline` library, it is common to use a constructor fu
 >
 > If you're not familiar with constructor functions in Elm, they come for free when we create a type alias for a record. It is just a function with the same name as the type alias that takes each record attribute as an argument and builds up a record. So with `type alias Person = { first : String, last : String, age : Int }` we can build a `Person` record with its constructor function like this: `Person "Arthur" "Dent" 42` \(returns `{ first = "Arthur", last = "Dent", age = 42 }`\).
 
-We don't have to use constructor functions, we could have used any function that takes an `Int` as the argument in place of the `Response` constructor function.
+We don't have to use constructor functions, we could have used any function that takes a single `Int`  argument in place of the `Response` constructor function.
 
 ```haskell
 identity : a -> a
