@@ -45,19 +45,17 @@ As with the `Json.Decode.Pipeline` library, it is common to use a constructor fu
 We don't have to use constructor functions, we could have used any function that takes an `Int` as the argument in place of the `Response` constructor function.
 
 ```haskell
+identity : a -> a
+identity x =
+    x
+
 query : SelectionSet Int RootQuery
 query =
     HitchHiker.Query.selection identity
         |> with HitchHiker.Query.answerToLifeUniverseAndEverything
 ```
 
-The identity function in Elm simply takes a thing and passes it right back. It's essentially a one-liner, here's the code:
-
-```haskell
-identity : a -> a
-identity x =
-  x
-```
+Here instead of wrapping the `answerToLifeUniverseAndEverything` value in a record, we're simply getting a raw `Int` from our query by passing it straight through with the `identity` function. In fact, we didn't need to define `identity`  because it is a built-in function in the Elm language!
 
 Using the `identity` function is convenient when we want to avoid nesting our data any further. Using constructor functions is handy because it's easy to add on more fields incrementally.
 
