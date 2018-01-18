@@ -2,7 +2,7 @@
 
 ### Plain GraphQL Selection Sets
 
-_Definition:_ **Selection sets** are how you describe a set of **fields** to pull off of an **object**, **interface**, or **union** in GraphQL. We'll just be using **objects** in this chapter.
+_Definition:_ **Selection sets** are how you describe a set of **fields** to pull off of an **object**, **interface**, or **union** in GraphQL. We'll only see examples of **selection sets** on **objects** in this chapter.
 
 The Github API allows you to query `viewer` to get details for the currently logged in user.
 
