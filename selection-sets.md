@@ -74,7 +74,7 @@ You'll develop a sense of when to use constructors versus other functions with p
 
 ### Building Up a `SelectionSet` in Elm
 
-Let's walk through the process of building up the same **selection set** from our earlier example in Elm.
+Let's walk through the process of building up our nested **selection set** from our earlier example using Elm.
 
 ```graphql
 query {
