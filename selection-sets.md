@@ -112,7 +112,7 @@ We're almost there, we just need to fill in our `Debug.crash "TODO"`. The defini
 > }
 > ```
 >
-> since Users don't have descriptions like Repositories and other **objects** do. `elm-graphql` enforces this constraint with the type annotations. A `SelectionSet decodesTo Github.Object.User` will only accept a `Field decodesTo Github.Object.User`. So if it compiles, your `SelectionSet` is guaranteed to be valid.
+> since Users don't have descriptions like Repositories and other **objects** do. `elm-graphql` enforces this constraint at compile-time using the type annotations. A `SelectionSet decodesTo Github.Object.User` will only accept a `Field decodesTo Github.Object.User`. So if it compiles, your `SelectionSet` is guaranteed to be valid.
 
 We want to give it a **selection set** that looks like `{ name }` . To ensure that your `SelectionSet` for `viewer` only has **fields** for a User **object**, `elm-graphql`  adds `Github.Object.User` to the `SelectionSet`'s annotation. That's what `SelectionSet decodesTo Github.Object.User` means. So we know we'll need to start with `Github.Object.User.selection`
 
