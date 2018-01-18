@@ -96,7 +96,7 @@ viewerSelection = Debug.crash "TODO"
 
 `Debug.crash` may cause our program to fail at run-time, but it is actually a neat trick for getting our program to succeed at compile-time. It essentially tells the compiler to not check a piece that we're still working on. If it compiles, we know that everything besides the `Debug.crash` statements is looking good, and we just need to swing back around to fill in the `Debug.crash` placeholders with real code.
 
-We're also omitting the type annotations for now. Once we finish building our **selection sets**, the compiler will actually be able to infer the types for us so there's not any need to worry about that yet.
+We're also omitting type annotations for now. Once we finish building our **selection sets**, the compiler will actually be able to infer the types for us so there's not any need to worry about that yet.
 
 We're almost there, we just need to fill in our `Debug.crash "TODO"`. The definition of the `Github.Query.viewer` function tells us that it needs an argument of type `SelectionSet decodesTo Github.Object.User` . This makes sense, just as with our plain GraphQL syntax above, we need a **selection set** that tells our server which fields we want to get back from the `viewer`. We want to give it a **selection set** that looks like `{ name }` . To ensure that your `SelectionSet` for `viewer` only has **fields** for a User **object**, `elm-graphql`  adds `Github.Object.User` to the `SelectionSet`'s annotation. That's what `SelectionSet decodesTo Github.Object.User` means. So we know we'll need to start with `Github.Object.User.selection`
 
