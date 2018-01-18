@@ -94,7 +94,7 @@ query =
 viewerSelection = Debug.crash "TODO"
 ```
 
-`Debug.crash` may cause our program to fail at run-time, but it is actually a neat trick for getting our program to succeed at compile-time. It essentially tells the compiler to not check a piece that we're still working on. If it compiles, we know that everything besides the `Debug.crash` statements is looking good.
+`Debug.crash` may cause our program to fail at run-time, but it is actually a neat trick for getting our program to succeed at compile-time. It essentially tells the compiler to not check a piece that we're still working on. If it compiles, we know that everything besides the `Debug.crash` statements is looking good, and we just need to swing back around to fill in the `Debug.crash` placeholders with real code.
 
 We're also omitting the type annotations for now. Once we finish building our **selection sets**, the compiler will actually be able to infer the types for us so there's not any need to worry about that yet.
 
